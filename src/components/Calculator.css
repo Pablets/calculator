@@ -1,0 +1,60 @@
+* {
+	box-sizing: border-box;
+}
+
+.overflowWrapper {
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+table {
+	border-spacing: 0px;
+	background-color: aliceblue;
+}
+
+td {
+	padding: 0px;
+	border: 0px;
+}
+
+td > button {
+	background-color: aliceblue;
+	color: rgb(102, 102, 102);
+	font-weight: 800;
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0px;
+	border: 0px;
+	border-radius: 2px;
+	user-select: none;
+}
+
+td > button:hover {
+	background-color: rgb(197, 222, 255);
+}
+
+td > button:active {
+	background-color: rgb(114, 175, 255);
+}
+
+tr {
+	width: 200px;
+}
+
+.result {
+	width: 200px;
+	border: none;
+	background-color: aliceblue;
+	color: black;
+	font-size: 25px;
+	text-align: right;
+	padding: 10px;
+	outline: none;
+}
+
+.result:focus {
+	border: none;
+}
