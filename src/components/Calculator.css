@@ -58,3 +58,9 @@ tr {
 .result:focus {
 	border: none;
 }
+
+.del-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

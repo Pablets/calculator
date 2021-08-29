@@ -1,4 +1,6 @@
+// import * as React from 'react';
 import React, {createContext, useContext, useReducer} from 'react';
+import {SvgComponent as DeleteIcon} from './assets/SvgComponent';
 import './Calculator.css';
 
 const initialState = {
@@ -96,7 +98,7 @@ const reducer = (state, action) => {
 				secondNumber: null,
 				operator: null,
 				buffer: [],
-				result: ''
+				result: '0'
 			};
 		}
 		case 'x²': {
@@ -212,6 +214,21 @@ const CalcRow = ({arrayOfNumbers}) => {
 							</button>
 						</td>
 					);
+				} else if (el === 'del') {
+					return (
+						<td key={`${el}`}>
+							<button
+								className='calc-button del-button'
+								onClick={() =>
+									dispatch({
+										type: `${el}`,
+										value: el
+									})
+								}>
+								<DeleteIcon className='del-button' />
+							</button>
+						</td>
+					);
 				} else {
 					return (
 						<td key={`${el}`}>
@@ -234,20 +251,11 @@ const CalcRow = ({arrayOfNumbers}) => {
 };
 
 const Calculator = () => {
-	//state
-	// const [value, setValue] = React.useState('0');
-	// const {state} = useContext(CounterContext);
-	// console.log(state);
-	// Const
 	const operatorRow = ['del', 'x²', '√', '÷'];
 	const bottomRowNumber = ['1', '2', '3', '+'];
 	const middleRowNumer = ['4', '5', '6', 'x'];
 	const topRowNumber = ['7', '8', '9', '-'];
 	const bottomRow = ['±', '0', '.', '='];
-
-	// const handleChange = number => {
-	// 	setValue(prev => prev + number);
-	// };
 
 	return (
 		<CounterContextProvider>
@@ -268,37 +276,3 @@ const Calculator = () => {
 };
 
 export default Calculator;
-
-//#region
-/*
-const Increment = () => {
-	const {dispatch} = useContext(CounterContext);
-	return (
-		<button
-			onClick={() =>
-				dispatch({
-					type: 'ADD_TO_COUNTER',
-					value: 1
-				})
-			}>
-			Sumar 1
-		</button>
-	);
-};
-
-const Decrement = () => {
-	const {dispatch} = useContext(CounterContext);
-	return (
-		<button
-			onClick={() =>
-				dispatch({
-					type: 'ADD_TO_COUNTER',
-					value: -1
-				})
-			}>
-			Restar 1
-		</button>
-	);
-};
-*/
-//#endregion
